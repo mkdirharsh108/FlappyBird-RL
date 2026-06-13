@@ -1,15 +1,18 @@
+
+#  for more info - # https://github.com/markub3327/flappy-bird-gymnasium -> for more infor about the game  ->readme.md file
+
 import flappy_bird_gymnasium
-import gymnasium as gym
 from dqn import DQN
 from experience_replay import ReplayMemory 
-import itertools
 import yaml
+import itertools
 import torch
+import gymnasium as gym
 import torch.nn as nn
 import torch.optim as optim
-import os
 import argparse
 import random
+import os
 
 if torch.backends.mps.is_available():
     device = "mps"
@@ -134,7 +137,7 @@ class Agent:
                     target_dqn.load_state_dict(policy_dqn.state_dict())
                     steps = 0
 
-            # env.close() - manually stop
+            # env.close() - commented to stop manually 
 
     
     def optimize(self, mini_batch, policy_dqn, target_dqn):
